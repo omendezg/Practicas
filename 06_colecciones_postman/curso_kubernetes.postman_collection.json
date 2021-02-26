@@ -1,0 +1,1012 @@
+{
+	"info": {
+		"_postman_id": "333b7f4e-8ac3-43f3-9020-4b0b216ee03d",
+		"name": "curso_kubernetes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "logs-balanceo",
+			"item": [
+				{
+					"name": "api-clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"apellidoMaterno\": \"cabrera\",\n \"apellidoPaterno\": \"arzate\",\n \"direccion\": \"test\",\n \"edad\": 29,\n \"email\": \"jovaniac@gmail.com\",\n \"genero\": \"h\",\n \"nombre\": \"jovani\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "35.193.210.68:8081/api/v1/clientes",
+							"host": [
+								"35",
+								"193",
+								"210",
+								"68"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "scaling",
+			"item": [
+				{
+					"name": "api-clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"apellidoMaterno\": \"cabrera\",\n \"apellidoPaterno\": \"arzate\",\n \"direccion\": \"test\",\n \"edad\": 29,\n \"email\": \"jovaniac@gmail.com\",\n \"genero\": \"h\",\n \"nombre\": \"jovani\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "35.226.227.90:8081/api/v1/clientes",
+							"host": [
+								"35",
+								"226",
+								"227",
+								"90"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api-clientes get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "35.226.227.90:8081/api/v1/clientes/1744236182",
+							"host": [
+								"35",
+								"226",
+								"227",
+								"90"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"clientes",
+								"1744236182"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api creditos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"montoCredito\": 4500,\n \"folioCliente\":\"346538239\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "35.202.8.117:8081/api/v1/creditos",
+							"host": [
+								"35",
+								"202",
+								"8",
+								"117"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"creditos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "dedicated-microservice-database",
+			"item": [
+				{
+					"name": "1-API Empleados POST 201",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\":\"jovani\",\n\t\"apellidoMaterno\":\"arzate\",\n\t\"apellidoPaterno\":\"cabrera\",\n\t\"edad\":\"28\",\n\t\"curp\":\"ASDFGHJJ45TFASDFSDGDF0\",\n\t\"rfc\":\"GSDFGFHJGJ6TEFW\",\n\t\"domicilio\":\"Azaleas\",\n\t\"imagen\":\"asdfsgdgfnhgfdsgdbfdsfafgm54kl3tw\",\n\t\"puesto\":\"Software Architect\",\n\t\"status\":\"false\",\n\t\"numeroEmpleado\":\"301929\",\n\t\"direccion\":\"10 de abril, #20, cuernavaca morelos\"\n}\n"
+						},
+						"url": {
+							"raw": "35.202.8.117:8080/empleados/v1",
+							"host": [
+								"35",
+								"202",
+								"8",
+								"117"
+							],
+							"port": "8080",
+							"path": [
+								"empleados",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-API Empleados PUT 200",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\":\"test\",\n\t\"apellidoMaterno\":\"arzate\",\n\t\"apellidoPaterno\":\"cabrera\",\n\t\"edad\":\"40\",\n\t\"curp\":\"ASDFGHJJ45TFASDFSDGDF0\",\n\t\"rfc\":\"GSDFGFHJGJ6TEFW\",\n\t\"domicilio\":\"Azaleas\",\n\t\"imagen\":\"asdfsgdgfnhgfdsgdbfdsfafgm54kl3tw\",\n\t\"puesto\":\"api DEVELOPER\",\n\t\"status\":\"false\",\n\t\"numeroEmpleado\":\"90102\",\n\t\"direccion\":\"10 de abril, #20, cuernavaca morelos\"\n}\n"
+						},
+						"url": {
+							"raw": "localhost:8766/empleados/v1/8a476b81-8d94-4e76-837b-52136d9c494f",
+							"host": [
+								"localhost"
+							],
+							"port": "8766",
+							"path": [
+								"empleados",
+								"v1",
+								"8a476b81-8d94-4e76-837b-52136d9c494f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-API Empleados GET 200",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8766/empleados/v1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8766",
+							"path": [
+								"empleados",
+								"v1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-API Empleados GET 200 By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8766/empleados/v1/8a476b81-8d94-4e76-837b-52136d9c494f",
+							"host": [
+								"localhost"
+							],
+							"port": "8766",
+							"path": [
+								"empleados",
+								"v1",
+								"8a476b81-8d94-4e76-837b-52136d9c494f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5-API Empleados DELETE 200 By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8766/empleados/v1/8a476b81-8d94-4e76-837b-52136d9c494f",
+							"host": [
+								"localhost"
+							],
+							"port": "8766",
+							"path": [
+								"empleados",
+								"v1",
+								"8a476b81-8d94-4e76-837b-52136d9c494f"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "shared-database-http-apigee",
+			"item": [
+				{
+					"name": "01_API Seguros POST 201",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"plazo\":\"5.0\",\n\t\"precioPoliza\":\"8.100\",\n\t\"tipoCobertura\":\"1\",\n\t\"vencimiento\":\"2020-01-01\",\n\t\"sumaAsegurada\":\"800.000\",\n\t\"nombre\":\"Jovani\",\n\t\"apellidoPaterno\":\"Arzate\",\n\t\"apellidoMaterno\":\"Cabrera\",\n\t\"fechaNacimiento\":\"01-08-1990\",\n\t\"sexo\":\"M\",\n\t\"ingresosAnuales\":\"800.000\",\n\t\"direccion\":\"cuernavaca\"\n}"
+						},
+						"url": {
+							"raw": "35.224.114.61:8080/seguros/v1",
+							"host": [
+								"35",
+								"224",
+								"114",
+								"61"
+							],
+							"port": "8080",
+							"path": [
+								"seguros",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02_API Seguros GET 200 By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"plazo\":\"1.5\",\n\t\"precioPoliza\":\"6.900\",\n\t\"tipoCobertura\":\"1\",\n\t\"vencimiento\":\"2021-01-01\",\n\t\"sumaAsegurada\":\"250.000\",\n\t\"nombre\":\"Erika\",\n\t\"apellidoPaterno\":\"Ramirez\",\n\t\"apellidoMaterno\":\"Acosta\",\n\t\"fechaNacimiento\":\"01-08-1990\",\n\t\"sexo\":\"M\",\n\t\"ingresosAnuales\":\"100.000\",\n\t\"direccion\":\"10 de abril, #20, cuernavaca morelos\"\n}"
+						},
+						"url": {
+							"raw": "35.224.114.61:8080/seguros/v1/eef2f3bc-53ba-4884-b114-4ac708a061f1",
+							"host": [
+								"35",
+								"224",
+								"114",
+								"61"
+							],
+							"port": "8080",
+							"path": [
+								"seguros",
+								"v1",
+								"eef2f3bc-53ba-4884-b114-4ac708a061f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03_API Seguros Catalogos GET 200",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"plazo\":\"1.5\",\n\t\"precioPoliza\":\"6.900\",\n\t\"tipoCobertura\":\"1\",\n\t\"vencimiento\":\"2021-01-01\",\n\t\"sumaAsegurada\":\"250.000\",\n\t\"nombre\":\"Erika\",\n\t\"apellidoPaterno\":\"Ramirez\",\n\t\"apellidoMaterno\":\"Acosta\",\n\t\"fechaNacimiento\":\"01-08-1990\",\n\t\"sexo\":\"M\",\n\t\"ingresosAnuales\":\"100.000\",\n\t\"direccion\":\"10 de abril, #20, cuernavaca morelos\"\n}"
+						},
+						"url": {
+							"raw": "130.211.228.187:8080/seguros/v1/catalogos",
+							"host": [
+								"130",
+								"211",
+								"228",
+								"187"
+							],
+							"port": "8080",
+							"path": [
+								"seguros",
+								"v1",
+								"catalogos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04_API Adm Polizas PUT 200 Confirmacion",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idAutorizacion\":\"dd7535af-1cde-4807-be31-74a71818d912\",\n\t\"confirmacion\":\"true\"\n}"
+						},
+						"url": {
+							"raw": "35.202.8.117:8080/administracion/v1/autorizaciones/confirmaciones",
+							"host": [
+								"35",
+								"202",
+								"8",
+								"117"
+							],
+							"port": "8080",
+							"path": [
+								"administracion",
+								"v1",
+								"autorizaciones",
+								"confirmaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "05_API Adm Polizas get 200 Autorizaciones",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"plazo\":\"1.5\",\n\t\"precioPoliza\":\"6.900\",\n\t\"tipoCobertura\":\"1\",\n\t\"vencimiento\":\"2021-01-01\",\n\t\"sumaAsegurada\":\"250.000\",\n\t\"nombre\":\"Erika\",\n\t\"apellidoPaterno\":\"Ramirez\",\n\t\"apellidoMaterno\":\"Acosta\",\n\t\"fechaNacimiento\":\"01-08-1990\",\n\t\"sexo\":\"M\",\n\t\"ingresosAnuales\":\"100.000\",\n\t\"direccion\":\"10 de abril, #20, cuernavaca morelos\"\n}"
+						},
+						"url": {
+							"raw": "35.202.8.117:8080/administracion/v1",
+							"host": [
+								"35",
+								"202",
+								"8",
+								"117"
+							],
+							"port": "8080",
+							"path": [
+								"administracion",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06_API Adm Polizas get 200 Autorizaciones ById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"plazo\":\"1.5\",\n\t\"precioPoliza\":\"6.900\",\n\t\"tipoCobertura\":\"1\",\n\t\"vencimiento\":\"2021-01-01\",\n\t\"sumaAsegurada\":\"250.000\",\n\t\"nombre\":\"Erika\",\n\t\"apellidoPaterno\":\"Ramirez\",\n\t\"apellidoMaterno\":\"Acosta\",\n\t\"fechaNacimiento\":\"01-08-1990\",\n\t\"sexo\":\"M\",\n\t\"ingresosAnuales\":\"100.000\",\n\t\"direccion\":\"10 de abril, #20, cuernavaca morelos\"\n}"
+						},
+						"url": {
+							"raw": "35.232.85.91:8080/administracion/v1/e6ce1bbf-521f-4c4e-a5db-ba456b64c419",
+							"host": [
+								"35",
+								"232",
+								"85",
+								"91"
+							],
+							"port": "8080",
+							"path": [
+								"administracion",
+								"v1",
+								"e6ce1bbf-521f-4c4e-a5db-ba456b64c419"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "08_API Adm Polizas PUT 200 Confirmacion Apigee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idAutorizacion\":\"dd7535af-1cde-4807-be31-74a71818d912\",\n\t\"confirmacion\":\"false\"\n}"
+						},
+						"url": {
+							"raw": "https://apigeemayo2020-eval-test.apigee.net/guadalupe/administracion/v1/autorizaciones/confirmaciones",
+							"protocol": "https",
+							"host": [
+								"apigeemayo2020-eval-test",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"guadalupe",
+								"administracion",
+								"v1",
+								"autorizaciones",
+								"confirmaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "09_API Adm Polizas PUT 200 Confirmacion Apigee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idAutorizacion\":\"dd45ac3c-f7c0-499e-9c49-a007c40a5bca\",\n\t\"confirmacion\":\"true\"\n}"
+						},
+						"url": {
+							"raw": "https://apigeemayo2020-eval-test.apigee.net/guadalupe/administracion/v1",
+							"protocol": "https",
+							"host": [
+								"apigeemayo2020-eval-test",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"guadalupe",
+								"administracion",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "microservices-bancopoder-comunicacion-eventual-apigee",
+			"item": [
+				{
+					"name": "01-API Creditos post 201",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"cliente\":\"301920\",\r\n   \"pais\":\"1\",\r\n   \"canal\":\"1003\",\r\n   \"sucursal\":{\r\n      \"id\":\"100\"\r\n   },\r\n   \"producto\":\"1\",\r\n   \"monto\":\"20000\",\r\n   \"plazo\":\"2\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"1\",\r\n         \"aniosConocimiento\":\"5\"\r\n      },\r\n        {\r\n         \"nombre\":\"Yaridel\",\r\n         \"apellidos\":\"Landa reyna\",\r\n         \"tipoReferencia\":\"2\",\r\n         \"aniosConocimiento\":\"10\"\r\n      }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "35.184.12.225:8080/creditos/v1",
+							"host": [
+								"35",
+								"184",
+								"12",
+								"225"
+							],
+							"port": "8080",
+							"path": [
+								"creditos",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-API Creditos get 200 By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"cliente\":\"301920\",\r\n   \"pais\":\"1\",\r\n   \"canal\":\"1003\",\r\n   \"sucursal\":{\r\n      \"id\":\"100\"\r\n   },\r\n   \"producto\":\"1\",\r\n   \"monto\":\"20000\",\r\n   \"plazo\":\"2\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"1\",\r\n         \"aniosConocimiento\":\"5\"\r\n      },\r\n        {\r\n         \"nombre\":\"Yaridel\",\r\n         \"apellidos\":\"Landa reyna\",\r\n         \"tipoReferencia\":\"2\",\r\n         \"aniosConocimiento\":\"10\"\r\n      }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "35.184.12.225:8080/creditos/v1/5a8ac6bd-1dda-4f5d-bc40-b2f285a2e59b",
+							"host": [
+								"35",
+								"184",
+								"12",
+								"225"
+							],
+							"port": "8080",
+							"path": [
+								"creditos",
+								"v1",
+								"5a8ac6bd-1dda-4f5d-bc40-b2f285a2e59b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-API Creditos delete 200",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"cliente\":\"301920\",\r\n   \"pais\":\"1\",\r\n   \"canal\":\"1003\",\r\n   \"sucursal\":{\r\n      \"id\":\"100\"\r\n   },\r\n   \"producto\":\"1\",\r\n   \"monto\":\"20000\",\r\n   \"plazo\":\"2\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"1\",\r\n         \"aniosConocimiento\":\"5\"\r\n      },\r\n        {\r\n         \"nombre\":\"Yaridel\",\r\n         \"apellidos\":\"Landa reyna\",\r\n         \"tipoReferencia\":\"2\",\r\n         \"aniosConocimiento\":\"10\"\r\n      }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "34.72.194.223:8080/creditos/v1/b583da93-5085-4ccf-a0e6-10524c683972",
+							"host": [
+								"34",
+								"72",
+								"194",
+								"223"
+							],
+							"port": "8080",
+							"path": [
+								"creditos",
+								"v1",
+								"b583da93-5085-4ccf-a0e6-10524c683972"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9-API Creditos aprobaciones 200",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"idCredito\":\"e854c4d7-5eff-4ce9-a3ec-9f361762ec21\",\r\n   \"estatus\":\"false\"\r\n}"
+						},
+						"url": {
+							"raw": "35.184.12.225:8080/creditos/v1/aprobaciones",
+							"host": [
+								"35",
+								"184",
+								"12",
+								"225"
+							],
+							"port": "8080",
+							"path": [
+								"creditos",
+								"v1",
+								"aprobaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-API Creditos pagos post 201",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"idCredito\":\"3de8689e-a80e-4054-ad07-c08da51e6190\",\r\n   \"concepto\":\"1\",\r\n   \"importe\":1000\r\n}"
+						},
+						"url": {
+							"raw": "35.184.12.225:8080/creditos/v1/pagos",
+							"host": [
+								"35",
+								"184",
+								"12",
+								"225"
+							],
+							"port": "8080",
+							"path": [
+								"creditos",
+								"v1",
+								"pagos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5-API Creditos pagos todos get 200",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"idCredito\":\"08937be7-587b-455a-9400-147f9c022527\",\r\n   \"concepto\":\"1\",\r\n   \"importe\":150\r\n}"
+						},
+						"url": {
+							"raw": "35.184.12.225:8080/creditos/v1/3de8689e-a80e-4054-ad07-c08da51e6190/pagos",
+							"host": [
+								"35",
+								"184",
+								"12",
+								"225"
+							],
+							"port": "8080",
+							"path": [
+								"creditos",
+								"v1",
+								"3de8689e-a80e-4054-ad07-c08da51e6190",
+								"pagos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7-API Creditos saldos 200",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"idCredito\":\"08937be7-587b-455a-9400-147f9c022527\",\r\n   \"concepto\":\"1\",\r\n   \"importe\":150\r\n}"
+						},
+						"url": {
+							"raw": "35.184.12.225:8080/creditos/v1/3de8689e-a80e-4054-ad07-c08da51e6190/saldos",
+							"host": [
+								"35",
+								"184",
+								"12",
+								"225"
+							],
+							"port": "8080",
+							"path": [
+								"creditos",
+								"v1",
+								"3de8689e-a80e-4054-ad07-c08da51e6190",
+								"saldos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10-API Creditos aprobaciones 200 ByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"idCredito\":\"e854c4d7-5eff-4ce9-a3ec-9f361762ec21\",\r\n   \"estatus\":\"false\"\r\n}"
+						},
+						"url": {
+							"raw": "34.72.161.185:8080/creditos/v1/aprobaciones/57e56336-08c0-4c1b-8028-70d29092b5a4",
+							"host": [
+								"34",
+								"72",
+								"161",
+								"185"
+							],
+							"port": "8080",
+							"path": [
+								"creditos",
+								"v1",
+								"aprobaciones",
+								"57e56336-08c0-4c1b-8028-70d29092b5a4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11-API Adm Polizas GET 200 Confirmacion",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idAutorizacion\":\"eb55a057-c02c-4af1-a55f-92fd3f255722\",\n\t\"confirmacion\":\"true\"\n}"
+						},
+						"url": {
+							"raw": "34.68.141.184:8080/administracion/v1",
+							"host": [
+								"34",
+								"68",
+								"141",
+								"184"
+							],
+							"port": "8080",
+							"path": [
+								"administracion",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12-API Adm Polizas PUT 200 Confirmacion",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idAutorizacion\":\"17f1249d-ee56-4d85-ae3b-f918ff2e38a4\",\n\t\"confirmacion\":\"true\"\n}"
+						},
+						"url": {
+							"raw": "34.68.141.184:8080/administracion/v1/autorizaciones/confirmaciones",
+							"host": [
+								"34",
+								"68",
+								"141",
+								"184"
+							],
+							"port": "8080",
+							"path": [
+								"administracion",
+								"v1",
+								"autorizaciones",
+								"confirmaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13-API Creditos PUT 200",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"cliente\":\"303030\",\r\n   \"pais\":\"2\",\r\n   \"canal\":\"1003\",\r\n   \"sucursal\":{\r\n      \"id\":\"100\"\r\n   },\r\n   \"producto\":\"1\",\r\n   \"monto\":\"20000\",\r\n   \"plazo\":\"2\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"1\",\r\n         \"aniosConocimiento\":\"5\"\r\n      },\r\n        {\r\n         \"nombre\":\"Yaridel\",\r\n         \"apellidos\":\"Landa reyna\",\r\n         \"tipoReferencia\":\"2\",\r\n         \"aniosConocimiento\":\"10\"\r\n      }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8766/creditos/v1/5c02d16c-ea36-43e7-9597-ef75568b547e",
+							"host": [
+								"localhost"
+							],
+							"port": "8766",
+							"path": [
+								"creditos",
+								"v1",
+								"5c02d16c-ea36-43e7-9597-ef75568b547e"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

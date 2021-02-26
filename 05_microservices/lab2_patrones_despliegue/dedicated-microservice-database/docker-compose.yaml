@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  mi-base-datos:
+    build: servicesData/postgresdb/
+    environment:
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - 5432:5432
+    volumes:
+      - ./blockstorage/postgres:/var/lib/postgresql/data
+  clientes-microservicio:
+    image: jovaniac/cliente-ms-compose:0.0.1-snapshot
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://mi-base-datos:5432/bank_ito
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mi-base-datos
+  

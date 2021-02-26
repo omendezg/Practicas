@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: portalweb
+  labels:
+    app: portalweb
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: portalweb
+  template:
+    metadata:
+      labels:
+        app: portalweb
+    spec:
+      containers:
+        - name: portalweb
+          image: jovaniac/portalweb:0.1
+          ports:
+            - containerPort: 80
